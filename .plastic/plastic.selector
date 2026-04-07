@@ -1,4 +1,0 @@
-repository "Assessment_ll_Game/Assessment_ll_Game@2475880788066@cloud"
-  path "/"
-    br "/main"
-    co "/main"
