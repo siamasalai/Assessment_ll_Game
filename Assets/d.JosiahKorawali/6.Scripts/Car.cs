@@ -5,35 +5,36 @@ public class CarMovement : MonoBehaviour
     [Header("Movement Settings")]
     public float forwardSpeed = 20f;
     public float laneSpeed = 15f;
+    public float turnSpeed = 100f; // Added for smooth camera rotation
 
     [Header("Effects & Audio")]
-    public ParticleSystem afterBurner; // Assign in Inspector
+    public ParticleSystem afterBurner;
     public AudioSource driveSound;
 
     void Update()
     {
-        // 1. Horizontal Movement (Left/Right)
-        float horizontal = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontal * laneSpeed * Time.deltaTime);
+        // 1. Get Input
+        float horizontal = Input.GetAxis("Horizontal"); // A/D or Left/Right
+        float vertical = Input.GetAxis("Vertical");     // W/S or Up/Down
 
-        // 2. Vertical Movement (Forward/Reverse)
-        float vertical = Input.GetAxis("Vertical");
+        // 2. Forward/Backward Movement
+        // We removed the '-' because the Car_Player is now oriented correctly.
+        transform.Translate(Vector3.forward * vertical * forwardSpeed * Time.deltaTime);
 
-        // We add a '-' before 'vertical' to flip the direction 
-        // if your car model was moving backwards.
-        transform.Translate(Vector3.forward * -vertical * forwardSpeed * Time.deltaTime);
+        // 3. Rotation (Turning)
+        // This is key for Cinemachine! Rotating the parent makes the camera swing.
+        float rotation = horizontal * turnSpeed * Time.deltaTime;
+        transform.Rotate(0, rotation, 0);
 
-        // 3. Handle After-burners & Sound
+        // 4. Handle After-burners & Sound
         HandleEffects(vertical);
     }
 
     void HandleEffects(float verticalInput)
     {
-        // Safety check: Exit if references are missing to avoid errors
         if (afterBurner == null || driveSound == null) return;
 
-        // Since we flipped movement, check if verticalInput is negative 
-        // to see if we are pressing 'forward' (W/Up)
+        // If verticalInput > 0 (Moving Forward), play effects
         if (verticalInput > 0)
         {
             if (!afterBurner.isPlaying) afterBurner.Play();
