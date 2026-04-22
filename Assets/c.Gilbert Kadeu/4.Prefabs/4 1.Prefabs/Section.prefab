@@ -1402,6 +1402,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5737801826403433542}
+  - component: {fileID: 5869241863180378088}
+  - component: {fileID: 1691741664431075950}
   m_Layer: 0
   m_Name: 'Car '
   m_TagString: Untagged
@@ -1425,6 +1427,50 @@ Transform:
   - {fileID: 5951951177256429779}
   m_Father: {fileID: 4258643154873625202}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!54 &5869241863180378088
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5595490255612962823}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!114 &1691741664431075950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5595490255612962823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2dff7dd4e92474db405b835304bf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 15
+  laneDistance: 1.5
+  laneChangeSpeed: 10
+  tiltAmount: 10
+  tiltSpeed: 5
 --- !u!1 &6275766547565984961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,7 +3274,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9179037735583004403, guid: 5941f3a36b9a0974a95e6b2135420135,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6514074058316430516}
   m_SourcePrefab: {fileID: 100100000, guid: 5941f3a36b9a0974a95e6b2135420135, type: 3}
 --- !u!4 &5951951177256429779 stripped
 Transform:
@@ -3236,6 +3286,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2787792572833236122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6472311081395434089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9179037735583004403, guid: 5941f3a36b9a0974a95e6b2135420135,
+    type: 3}
+  m_PrefabInstance: {fileID: 2787792572833236122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6514074058316430516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472311081395434089}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1924128652491027321, guid: dc2d558ba625c3f43b50bea501a07cf4, type: 3}
 --- !u!1001 &3416626400269256002
 PrefabInstance:
   m_ObjectHideFlags: 0
