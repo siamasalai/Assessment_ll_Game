@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/d.JosiahKorawali/Scenes 1/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/c.Gilbert Kadeu/4.Prefabs/MainMenu_Scene.unity
+    path: Assets/MainMenu/Scene/MainMenu_Scene.unity
     guid: 82f0e31becf09494f9a2d80191f8f9d3
   - enabled: 1
-    path: Assets/d.JosiahKorawali/Scenes/1.Play_Scene.unity
-    guid: 79f8bac4c75da6e43bd8288f7d84106c
+    path: Assets/b.JudeThomas/7.Scenes/MainMenu.unity
+    guid: e37d5ec4d67c5a64fbf6c3a281cbcf14
   - enabled: 1
-    path: Assets/d.JosiahKorawali/Scenes/2.Help_Scene.unity
-    guid: 0a11542f0def30849a35fd35ac1567d4
+    path: Assets/b.JudeThomas/7.Scenes/MySimulation.unity
+    guid: fe3c2359554f1a348b1c3533813887b0
   - enabled: 1
-    path: Assets/d.JosiahKorawali/Scenes/3.Credit_Scene.unity
-    guid: c9d6dc12524cc6448a27d33c999adae5
+    path: Assets/b.JudeThomas/7.Scenes/Tutorial.unity
+    guid: 5001d77e388b4344481979dac1e083fb
   - enabled: 1
-    path: Assets/d.JosiahKorawali/Scenes/4.Exit_Scene.unity
-    guid: 3772203dd74f550498a6a0120b22fe43
+    path: Assets/b.JudeThomas/7.Scenes/Credit.unity
+    guid: 31ffeb02df8065747ab3b1d76ad824ca
+  - enabled: 1
+    path: Assets/b.JudeThomas/7.Scenes/Exit.unity
+    guid: 6709bc730ea9c034fa5e4b47e4d11872
   m_configObjects: {}

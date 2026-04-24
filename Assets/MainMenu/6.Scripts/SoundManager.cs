@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
-    // --- SETTINGS AND VARIABLES ---
     public static SoundManager instance;
 
     [Header("Audio Settings")]
@@ -18,7 +17,7 @@ public class SoundManager : MonoBehaviour
 
     private bool isMuted = false;
 
-    // --- INITIALIZATION ---
+    // --- Singleton Setup ---
     void Awake()
     {
         if (instance == null)
@@ -36,13 +35,13 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        // Sync music volume with saved settings at start
+        // Sync music with saved settings
         if (bgMusic != null)
         {
             bgMusic.mute = isMuted;
         }
 
-        // Find the toggle button icon when game starts
+        // Find toggle button icon at start
         if (btnIcon == null)
         {
             GameObject foundObj = GameObject.Find("MusicToggleButton");
@@ -54,14 +53,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // --- SCENE MANAGEMENT ---
+    // --- Scene Switching Logic ---
     void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
     void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Only play music in Menu, Tutorial, and Credit scenes
-        if (scene.name == "MainMenu_Scene" || scene.name == "Tutorial" || scene.name == "Credit")
+        // Music only plays in specific scenes
+        if (scene.name == "MainMenu" || scene.name == "MySimulation" || scene.name == "Tutorial" || scene.name == "Credit")
         {
             if (bgMusic != null && !bgMusic.isPlaying)
             {
@@ -75,10 +74,10 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // --- BUTTON SYSTEM ---
+    // --- Button Management ---
     void Update()
     {
-        // If scene changed and we lost the button reference, find it again
+        // Re-find buttons if they are lost after scene change
         if (btnIcon == null)
         {
             FindAndFixButton();
@@ -100,11 +99,11 @@ public class SoundManager : MonoBehaviour
             btn.onClick.AddListener(PlayClickSound);
         }
 
-        // Link sounds to all main menu buttons
-        AddSoundToButton("Start");
-        AddSoundToButton("Tutorial");
-        AddSoundToButton("Credit");
-        AddSoundToButton("Exit");
+        // Apply sounds to menu buttons
+        AddSoundToButton("PlayButton");
+        AddSoundToButton("TutorialButton");
+        AddSoundToButton("CreditButton");
+        AddSoundToButton("ExitButton");
     }
 
     void AddSoundToButton(string btnName)
@@ -118,7 +117,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // --- CORE AUDIO LOGIC ---
+    // --- Audio Functions ---
     public void ToggleMusic()
     {
         isMuted = !isMuted;
@@ -140,7 +139,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // --- SAVE AND LOAD ---
+    // --- Save System ---
     void SaveSettings()
     {
         PlayerPrefs.SetInt("MutedState", isMuted ? 1 : 0);
@@ -152,7 +151,7 @@ public class SoundManager : MonoBehaviour
         isMuted = PlayerPrefs.GetInt("MutedState", 0) == 1;
     }
 
-    // --- UI ANIMATIONS (HOVER) ---
+    // --- UI Effects ---
     public void OnHover() { if (btnIcon != null) btnIcon.transform.localScale = new Vector3(1.2f, 1.2f, 1f); }
     public void OnExit() { if (btnIcon != null) btnIcon.transform.localScale = new Vector3(1f, 1f, 1f); }
     public void OnClickDown() { if (btnIcon != null) btnIcon.transform.localScale = new Vector3(0.9f, 0.9f, 1f); }
