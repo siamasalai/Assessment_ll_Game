@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     [Tooltip("Drag your Farewell Panel here")]
     public GameObject farewellPanel;
 
-    // --- AUTOMATION ---
+   
     void Start()
     {
         // Check if we are starting in the Exit scene to trigger the timer
