@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/d.JosiahKorawali/Scenes 1/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/MainMenu/Scene/MainMenu_Scene.unity
+    guid: 82f0e31becf09494f9a2d80191f8f9d3
+  - enabled: 1
+    path: Assets/d.JosiahKorawali/Scenes/1.Play_Scene.unity
+    guid: 79f8bac4c75da6e43bd8288f7d84106c
+  - enabled: 1
+    path: Assets/d.JosiahKorawali/Scenes/2.Help_Scene.unity
+    guid: 0a11542f0def30849a35fd35ac1567d4
+  - enabled: 1
+    path: Assets/d.JosiahKorawali/Scenes/3.Credit_Scene.unity
+    guid: c9d6dc12524cc6448a27d33c999adae5
+  - enabled: 1
+    path: Assets/d.JosiahKorawali/Scenes/4.Exit_Scene.unity
+    guid: 3772203dd74f550498a6a0120b22fe43
+  m_configObjects: {}
